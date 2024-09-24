@@ -4,6 +4,7 @@
 
 .app {
     padding: 40px;
+    font-size: small;
 }
 
 .nav-item {
@@ -12,7 +13,7 @@
 
 .nav-item a, .nav-item button{
     text-decoration: none !important;
-    font-size: 15px;
+    font-size: small;
     color: #535151 !important;
 }
 
@@ -27,6 +28,7 @@ ul {
    list-style-type: none;
     padding: 26px;
     background: #f4f4f4;
+    font-size: small;
 }
 
 form button {
