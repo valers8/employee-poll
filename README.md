@@ -1,12 +1,41 @@
+Employee Polls App
+
+# Description
+The Employee Polls App is a React application that allows employees to vote in polls and create new polls. 
+The app features authentication, a leaderboard, and a set of routes for answering questions, creating new polls, and viewing poll results. 
+It leverages Redux for state management, React Router for routing, and Framer Motion for animations. 
+The project also includes styled components for better UI and theming.
+
+# Features
+User Authentication
+Create and answer polls
+Leaderboard displaying top users based on their activity
+Responsive design using styled-components
+State management using Redux Toolkit
+Animated components using Framer Motion
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Installation and Setup
+
+Clone the repository
+git clone https://github.com/valers8/employee-poll.git
+
+# Navigate into the project directory
+
+cd employee-poll
+
+# Install the dependencies
+
+npm install
+
 ## Available Scripts
 
-In the project directory, you can run:
+# Start the development server
 
-### `npm start`
+## npm start
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -16,8 +45,7 @@ You may also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in interactive watch mode. You can run tests for your API functions, Redux actions, and reducers
 
 ### `npm run build`
 
@@ -27,44 +55,66 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Project Structure
 
-### `npm run eject`
+employee-polls/
+│
+├── src/                             # Main source folder
+│   ├── components/                  # Reusable React components
+│   │   ├── Homepage.js              # Home page displaying questions
+│   │   ├── Leaderboard.js           # Leaderboard page displaying user rankings
+│   │   ├── Loginpage.js             # Login page for user authentication
+│   │   ├── Newpoll.js               # New poll creation page
+│   │   ├── Pollpage.js              # Poll page to display poll details and voting
+│   │
+│   ├── features/                    # Redux slices for state management
+│   │   ├── authSlice.js             # Authentication slice (login/logout)
+│   │   ├── questionSlice.js         # Slice to manage questions (fetching, saving, voting)
+│   │   ├── userSlice.js             # Slice to manage users (fetching users)
+│   │
+│   ├── api.js                       # Mock API functions to handle questions and users
+│   ├── api.test.js                  # Unit tests for API functions
+│   ├── App.css                      # Global CSS styles
+│   ├── App.js                       # Main app component handling routes and navigation
+│   ├── index.js                     # Entry point for React app
+│   ├── store.js                     # Redux store configuration
+│
+└── README.md                        # Project documentation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Redux Store
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The application uses Redux Toolkit for state management. It includes three slices of state:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+authSlice.js: Handles authentication-related actions like login and logout.
+userSlice.js: Manages user data, including fetching users from the API.
+questionSlice.js: Manages the questions, including creating new polls, answering polls, and fetching questions from the API.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Routes
+The app uses React Router for navigating between different pages:
 
-## Learn More
+/: Home page showing questions (unanswered/answered).
+/leaderboard: Leaderboard displaying user rankings.
+/add: Create a new poll.
+/questions/:id: View and vote on a specific poll.
+*: Redirects all other routes to the login page.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## API
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The app uses a mock API to simulate fetching and saving data:
 
-### Code Splitting
+_getQuestions: Fetches all questions.
+_getUsers: Fetches all users.
+_saveQuestion: Saves a new question.
+_saveQuestionAnswer: Saves an answer to a question.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Technologies Used
 
-### Analyzing the Bundle Size
+React: For building the user interface.
+Redux Toolkit: For managing the global state.
+React Router: For handling routing between pages.
+Styled Components: For CSS-in-JS styling.
+Framer Motion: For animations.
+Jest: For unit testing.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+MIT License
