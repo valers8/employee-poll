@@ -1,9 +1,14 @@
+const image1 = "assets/people/7309667.jpg";
+const image2 = "assets/people/7309681.jpg";
+const image3 = "assets/people/7309687.jpg";
+const image4 = "assets/people/9434937.jpg";
+
 let users = {
     sarahedo: {
       id: 'sarahedo',
       password:'123',
       name: 'Sarah Edo',
-      avatarURL: "https://github.com/valers8/employee-poll/blob/main/src/assets/people/7309667.jpg",
+      avatarURL: image1,
       answers: {
         "8xf0y6ziyjabvozdd253nd": 'optionOne',
         "6ni6ok3ym7mf1p33lnez": 'optionOne',
@@ -16,7 +21,7 @@ let users = {
       id: 'tylermcginnis',
       password:'123',
       name: 'Tyler McGinnis',
-      avatarURL: "https://avatar.iran.liara.run/public/31",
+      avatarURL: image2,
       answers: {
         "vthrdm985a262al8qx3do": 'optionOne',
         "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -27,7 +32,7 @@ let users = {
       id: 'mtsamis',
       password:'123',
       name: 'Mike Tsamis',
-      avatarURL: "https://avatar.iran.liara.run/public/23",
+      avatarURL: image4,
       answers: {
         "xj352vofupe1dqz9emx13r": 'optionOne',
         "vthrdm985a262al8qx3do": 'optionTwo',
@@ -39,7 +44,7 @@ let users = {
       id: 'zoshikanlu',
       password:'123',
       name: 'Zenobia Oshikanlu',
-      avatarURL: "https://avatar.iran.liara.run/public/82",
+      avatarURL: image3,
       answers: {
         "xj352vofupe1dqz9emx13r": 'optionOne',
       },
