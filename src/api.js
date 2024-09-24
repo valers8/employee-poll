@@ -3,7 +3,7 @@ let users = {
       id: 'sarahedo',
       password:'123',
       name: 'Sarah Edo',
-      avatarURL: "https://avatar.iran.liara.run/public/57",
+      avatarURL: "https://github.com/valers8/employee-poll/blob/main/src/assets/people/7309667.jpg",
       answers: {
         "8xf0y6ziyjabvozdd253nd": 'optionOne',
         "6ni6ok3ym7mf1p33lnez": 'optionOne',
