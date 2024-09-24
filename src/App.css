@@ -3,8 +3,11 @@
 }
 
 .app {
-    padding: 40px;
+    padding: 40px 0px;
     font-size: small;
+    max-width: 70vw;
+    margin: 0 auto;
+    background-color: #fbfbfb;    
 }
 
 .nav-item {
@@ -14,7 +17,7 @@
 .nav-item a, .nav-item button{
     text-decoration: none !important;
     font-size: small;
-    color: #535151 !important;
+    color: floralwhite;
 }
 
 .login-user {
@@ -24,13 +27,29 @@
 }
 
 ul { 
-   display: flex;
-   list-style-type: none;
+    display: flex;
+    list-style-type: none;
     padding: 26px;
-    background: #f4f4f4;
+    background: #15ab78;
     font-size: small;
+    align-items: center;
 }
 
 form button {
    background-color: #15ab78!important;
+}
+
+.nav-item-logout {
+  background: transparent;
+  border: none;
+  font-weight: 600;
+  cursor:pointer;
+}
+
+.user-welcome-box {
+  color: floralwhite;
+  display: flex;
+  padding: 12px;
+  font-weight: 600;
+  font-size: 14px;
 }

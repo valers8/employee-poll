@@ -33,7 +33,7 @@ const Button = styled(motion.button)`
   background: rgb(21, 171, 120);
   color: #fff;
   cursor: pointer;
-  font-size: 16px;
+  font-size: small;
 
   &:hover {
     background: #0f9064;

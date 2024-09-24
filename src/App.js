@@ -17,6 +17,7 @@ const Avatar = styled.img`
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  margin-left: 10px;
 `;
 
 function App() {
@@ -40,13 +41,15 @@ function App() {
         <ul style={{ listStyleType: 'none' }}>
           {authedUser ? (
             <>
-              <p className='user-welcome'>Welcome, {users[authedUser]?.name}</p>
+            <div className='user-welcome-box'>
+              <p className='user-welcome'>Let's vote, {users[authedUser]?.name} !</p>
               <Avatar className='user-welcome' src={users[authedUser]?.avatarURL} alt={`${users[authedUser]?.name}'s avatar`} />
+            </div>
               <li className='nav-item'><Link to="/">Home</Link></li>
               <li className='nav-item'><Link to="/leaderboard">Leaderboard</Link></li>
               <li className='nav-item'><Link to="/add">New Poll</Link></li>
               <li className='nav-item'>
-                <button onClick={handleLogout}>
+                <button className='nav-item-logout' onClick={handleLogout}>
                   Logout
                 </button>
               </li>
