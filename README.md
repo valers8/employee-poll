@@ -55,29 +55,35 @@ Your app is ready to be deployed!
 
 ## Project Structure
 
-employee-polls/
-│
-├── src/                             # Main source folder
-│   ├── components/                  # Reusable React components
-│   │   ├── Homepage.js              # Home page displaying questions
-│   │   ├── Leaderboard.js           # Leaderboard page displaying user rankings
-│   │   ├── Loginpage.js             # Login page for user authentication
-│   │   ├── Newpoll.js               # New poll creation page
-│   │   ├── Pollpage.js              # Poll page to display poll details and voting
+# Employee Polls App
+
+## Project Structure
+
+```bash
+employee-poll/
+├── src/                              # Main source folder
+│   ├── components/                   # Reusable React components
+│   │   ├── Homepage.js               # Home page displaying questions
+│   │   ├── Leaderboard.js            # Leaderboard page displaying user rankings
+│   │   ├── Loginpage.js              # Login page for user authentication
+│   │   ├── Newpoll.js                # New poll creation page
+│   │   ├── Pollpage.js               # Poll page to display poll details and voting
 │   │
-│   ├── features/                    # Redux slices for state management
-│   │   ├── authSlice.js             # Authentication slice (login/logout)
-│   │   ├── questionSlice.js         # Slice to manage questions (fetching, saving, voting)
-│   │   ├── userSlice.js             # Slice to manage users (fetching users)
+│   ├── features/                     # Redux slices for state management
+│   │   ├── authSlice.js              # Authentication slice (login/logout)
+│   │   ├── questionSlice.js          # Slice to manage questions (fetching, saving, voting)
+│   │   ├── userSlice.js              # Slice to manage users (fetching users)
 │   │
-│   ├── api.js                       # Mock API functions to handle questions and users
-│   ├── api.test.js                  # Unit tests for API functions
-│   ├── App.css                      # Global CSS styles
-│   ├── App.js                       # Main app component handling routes and navigation
-│   ├── index.js                     # Entry point for React app
-│   ├── store.js                     # Redux store configuration
+│   ├── api.js                        # Mock API functions to handle questions and users
+│   ├── api.test.js                   # Unit tests for API functions
+│   ├── App.css                       # Global CSS styles
+│   ├── App.js                        # Main app component handling routes and navigation
+│   ├── index.js                      # Entry point for React app
+│   ├── store.js                      # Redux store configuration
 │
-└── README.md                        # Project documentation
+└── README.md                         # Project documentation
+```
+
 
 ## Redux Store
 
