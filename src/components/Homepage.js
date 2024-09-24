@@ -98,7 +98,10 @@ const HomePage = () => {
         </TabButton>
       </TabsContainer>
 
-      <QuestionsList>
+    {activeTab === 'unanswered' && unansweredQuestions.length === 0 ? (
+        <p className='message-sign'>No unanswered questions.</p>
+    ) : (
+        <QuestionsList>
         {(activeTab === 'unanswered' ? unansweredQuestions : answeredQuestions).map((qid) => {
           const question = questions[qid];
           const author = users[question.author];
@@ -132,6 +135,7 @@ const HomePage = () => {
           );
         })}
       </QuestionsList>
+    )} 
     </div>
   );
 };
