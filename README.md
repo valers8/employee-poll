@@ -55,6 +55,10 @@ Your app is ready to be deployed!
 
 ## Project Structure
 
+# Employee Polls App
+
+## Project Structure
+
 ```bash
 employee-polls/
 ├── src/                              # Main source folder
@@ -78,6 +82,7 @@ employee-polls/
 │   ├── store.js                      # Redux store configuration
 │
 └── README.md                         # Project documentation
+```
 
 
 ## Redux Store
