@@ -60,7 +60,7 @@ Your app is ready to be deployed!
 ## Project Structure
 
 ```bash
-employee-polls/
+employee-poll/
 ├── src/                              # Main source folder
 │   ├── components/                   # Reusable React components
 │   │   ├── Homepage.js               # Home page displaying questions
