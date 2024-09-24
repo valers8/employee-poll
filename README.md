@@ -55,10 +55,6 @@ Your app is ready to be deployed!
 
 ## Project Structure
 
-# Employee Polls App
-
-## Project Structure
-
 ```bash
 employee-poll/
 ├── src/                              # Main source folder
