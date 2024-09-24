@@ -33,8 +33,6 @@ npm install
 
 ## Available Scripts
 
-# Start the development server
-
 ## npm start
 
 Runs the app in the development mode.\
