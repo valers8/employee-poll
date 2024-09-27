@@ -1,9 +1,11 @@
 import React from 'react';
-import { Routes, Route, Link, Navigate } from 'react-router-dom';
+import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers } from './features/userSlice';
 import { fetchQuestions } from './features/questionSlice';
 import { logout } from './features/authSlice';
+import NotFoundPage from './components/Notfoundpage';
+import RequireAuth from './requireAuth';
 import './App.css';
 
 import HomePage from './components/Homepage';
@@ -24,7 +26,7 @@ function App() {
   const dispatch = useDispatch();
   const authedUser = useSelector((state) => state.auth.authedUser);
   const users = useSelector((state) => state.users.users);
-  const questions = useSelector((state) => state.questions.questions);
+  const navigate = useNavigate(); 
 
   React.useEffect(() => {
     dispatch(fetchUsers());
@@ -32,7 +34,7 @@ function App() {
   }, [dispatch]);
 
   const handleLogout = () => {
-    dispatch(logout());
+    dispatch(logout());    
   };
 
   return (
@@ -61,15 +63,15 @@ function App() {
       </nav>
 
       <Routes>
-        <Route path="/" element={authedUser ? <HomePage /> : <LoginPage />} />
-        <Route path="/leaderboard" element={authedUser ? <Leaderboard /> : <LoginPage />} />
-        <Route path="/add" element={authedUser ? <NewPoll /> : <LoginPage />} />
-        <Route path="/questions/:id" element={authedUser ? <PollPage /> : <LoginPage />} />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/" element={<RequireAuth><HomePage /></RequireAuth>} />
+        <Route path="/leaderboard" element={<RequireAuth><Leaderboard /></RequireAuth>} />
+        <Route path="/add" element={<RequireAuth><NewPoll /></RequireAuth>} />
+        <Route path="/questions/:id" element={<RequireAuth><PollPage /></RequireAuth>} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
   );
 }
 
 export default App;
-

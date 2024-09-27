@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { login } from '../features/authSlice';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
@@ -44,14 +44,28 @@ const LoginPage = () => {
   const [selectedUser, setSelectedUser] = useState('');
   const [password, setPassword] = useState('');
   const users = useSelector((state) => state.users.users);
+  const authedUser = useSelector((state) => state.auth.authedUser);
+  const previousUser = useSelector((state) => state.auth.previousUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
+  const error = location.state?.error;
+
+  // 'from' is where the user was before the redirect to login
+  const from = location.state?.from?.pathname || '/';
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (users[selectedUser].password === password) {
+
+    if (users[selectedUser]?.password === password) {
       dispatch(login(selectedUser));
-      navigate('/');
+
+      // Check if the logged-in user is the same as the previous user
+      if (selectedUser === previousUser) {
+        navigate(from); // Redirect to the last requested page if same user
+      } else {
+        navigate('/'); // Redirect to homepage if a different user
+      }
     } else {
       alert('Incorrect password');
     }
@@ -59,10 +73,11 @@ const LoginPage = () => {
 
   return (
     <LoginPageContainer>
-      <h1>Login</h1>
+      <h1>Log in</h1>
+      <div>{error && <p>{error}</p>}</div>
       <Form onSubmit={handleLogin}>
-        <label>Select User:</label>
-        <select className="login-user" value={selectedUser} onChange={(e) => setSelectedUser(e.target.value)}>
+      <label htmlFor="user-select">Select User:</label>
+        <select  id="user-select" className="login-user" value={selectedUser} onChange={(e) => setSelectedUser(e.target.value)}>
           <option value="">Select a user</option>
           {Object.keys(users).map((user) => (
             <option key={user} value={user}>
@@ -70,8 +85,9 @@ const LoginPage = () => {
             </option>
           ))}
         </select>
-        <label>Password:</label>
+        <label htmlFor="password-input">Password:</label>
         <Input
+          id="password-input"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -88,6 +104,7 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+
 
 
   

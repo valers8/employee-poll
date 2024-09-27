@@ -1,24 +1,30 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { Navigate } from 'react-router-dom';
+
+const initialState = {
+  authedUser: localStorage.getItem('authedUser') || null,
+  previousUser: null, // To track the previously logged-in user
+};
 
 const authSlice = createSlice({
   name: 'auth',
-  initialState: {
-    authedUser: null,
-  },
+  initialState,
   reducers: {
     login(state, action) {
       state.authedUser = action.payload;
-      sessionStorage.setItem('authedUser', action.payload); // Save authedUser in session storage
+      localStorage.setItem('authedUser', action.payload); // Save authedUser to localStorage
     },
     logout(state) {
+      state.previousUser = state.authedUser; // Store the previous user on logout
       state.authedUser = null;
-      sessionStorage.removeItem('authedUser'); // Remove authedUser from session storage
+      localStorage.removeItem('authedUser'); // Remove authedUser from localStorage
     },
   },
 });
 
-export const { login, logout } = authSlice.actions; // Exporting login and logout
-
+export const { login, logout } = authSlice.actions;
 export default authSlice.reducer;
+
+
 
 

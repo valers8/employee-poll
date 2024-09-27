@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
+
 const QuestionItem = styled.div`
   display: flex;
   flex-direction: column;
